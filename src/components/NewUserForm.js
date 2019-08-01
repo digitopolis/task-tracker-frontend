@@ -2,14 +2,42 @@ import React from 'react'
 import styled from 'styled-components'
 
 class NewUserForm extends React.Component {
+
+	state = {
+		name: '',
+		username: ''
+	}
+
+	handleSubmit = (event) => {
+		event.preventDefault()
+		console.log(this.state);
+	}
+
+	handleChange = (event) => {
+		const name = event.target.name
+		const value = event.target.value
+
+		this.setState({ [name]: value })
+	}
+
 	render () {
 		return (
 			<OuterDiv >
 				<InnerDiv>
 					<h1>New User Form</h1>
-					<form>
-						Name: <input type='text'/><br/>
-						Username: <input type='text'/><br/>
+					<form onSubmit={this.handleSubmit}>
+						<label>Name: </label>
+						<input
+							type='text'
+							name='name'
+							placeholder='Name'
+							onChange={this.handleChange}/><br/>
+						<label>Username: </label>
+						<input
+							type='text'
+							name='username'
+							placeholder='Username'
+							onChange={this.handleChange}/><br/>
 					<input type='submit'/>
 					</form>
 				</InnerDiv>
