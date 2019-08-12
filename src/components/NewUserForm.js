@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { USERS } from '../apiEndpoints'
 
 class NewUserForm extends React.Component {
 
 	state = {
 		name: '',
-		username: ''
+		username: '',
+		password: '',
+		confirmPassword: ''
 	}
 
 	handleSubmit = (event) => {
@@ -37,6 +40,18 @@ class NewUserForm extends React.Component {
 							type='text'
 							name='username'
 							placeholder='Username'
+							onChange={this.handleChange}/><br/>
+						<label>Password: </label>
+						<input
+							type='password'
+							name='password'
+							placeholder='Password'
+							onChange={this.handleChange}/><br/>
+						<label>Confirm Password: </label>
+						<input
+							type='password'
+							name='confirmPassword'
+							placeholder='Confirm Password'
 							onChange={this.handleChange}/><br/>
 					<input type='submit'/>
 					</form>
