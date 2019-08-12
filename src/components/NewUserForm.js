@@ -13,7 +13,12 @@ class NewUserForm extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.state);
+		const { password, confirmPassword } = this.state
+		if (password !== confirmPassword) {
+			alert('passwords do not match');
+		} else {
+			console.log(this.state);
+		}
 	}
 
 	handleChange = (event) => {
