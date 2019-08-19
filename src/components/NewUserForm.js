@@ -17,8 +17,21 @@ class NewUserForm extends React.Component {
 		if (password !== confirmPassword) {
 			alert('passwords do not match');
 		} else {
-			console.log(this.state);
+			this.sendNewUser()
 		}
+	}
+
+	sendNewUser = () => {
+		const { confirmPassword, ...data } = this.state
+		fetch(USERS, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify(data)
+		}).then(res => res.json())
+		.then(console.log)
 	}
 
 	handleChange = (event) => {
