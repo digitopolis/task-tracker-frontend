@@ -31,7 +31,14 @@ class NewUserForm extends React.Component {
 			},
 			body: JSON.stringify(data)
 		}).then(res => res.json())
-		.then(console.log)
+		.then(this.handleResponse)
+	}
+
+	handleResponse = (res) => {
+		console.log(res)
+		if (res.user) {
+			localStorage.setItem('jwt', res.jwt)
+		}
 	}
 
 	handleChange = (event) => {
