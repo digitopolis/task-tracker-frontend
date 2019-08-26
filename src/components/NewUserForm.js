@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { USERS } from '../apiEndpoints'
+import { Link } from 'react-router-dom'
 
 class NewUserForm extends React.Component {
 
@@ -80,6 +81,7 @@ class NewUserForm extends React.Component {
 							onChange={this.handleChange}/><br/>
 					<input type='submit'/>
 					</form>
+					<p>Already have an account? <Link to='/login'>Login here</Link> instead.</p>
 				</InnerDiv>
 			</OuterDiv>
 		)
